@@ -15,10 +15,10 @@ const Login = () => {
             </div>
             <Box className="boxContainer">
                 <div className="user-box">
-                    <TextField id="standard-basic" label="User" variant="standard" color="loginButton" sx={{ width: "15rem", paddingBottom: "1rem" }} />
+                    <TextField className="loginTextFile" sx={{ width: "100%" }} id="standard-basic" label="User" variant="standard" color="loginButton"/>
                 </div>
                 <div className="user-box">
-                    <TextField id="standard-basic" label="Password" variant="standard" color="loginButton" sx={{ width: "15rem", paddingBottom: "1rem" }} />
+                    <TextField id="standard-basic" sx={{ width: "100%" }} label="Password" variant="standard" color="loginButton" className="loginTextFile" />
                 </div>
                 <CardActions sx={{ paddingTop: "2rem" }}>
                     <Button variant="outlined" color="loginButton" sx={{ fontWeight: "bolder" }}>
