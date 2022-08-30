@@ -1,13 +1,19 @@
-import { Button, Card, CardActions, CardContent, TextField, Typography } from '@mui/material';
+import { Button, Box, CardActions, TextField } from '@mui/material';
 import * as React from 'react';
+import { useState } from 'react';
 import { useTheme } from '@mui/material/styles';
+import { useDispatch, useSelector } from 'react-redux';
 
-
+import { getDataUserLogin } from '../../Redux/Login/loginStore';
 import "./Login.css"
-import { Box } from '@mui/system';
+
 
 const Login = () => {
     const theme = useTheme()
+    const dispatch = useDispatch();
+    const [userName, setUserName] = useState("");
+    const [password, setPassword] = useState("");
+
     return (
         <div className="login-box">
             <div style={{ display: "flex", justifyContent: "center" }}>
@@ -15,13 +21,13 @@ const Login = () => {
             </div>
             <Box className="boxContainer">
                 <div className="user-box">
-                    <TextField className="loginTextFile" sx={{ width: "100%" }} id="standard-basic" label="User" variant="standard" color="loginButton"/>
+                    <TextField onChange={e => setUserName(e.target.value)} className="loginTextFile" sx={{ width: "100%" }} id="standard-basic" label="User" variant="standard" color="loginButton" />
                 </div>
                 <div className="user-box">
-                    <TextField id="standard-basic" sx={{ width: "100%" }} label="Password" variant="standard" color="loginButton" className="loginTextFile" />
+                    <TextField onChange={e => setPassword(e.target.value)} className="loginTextFile" sx={{ width: "100%" }} id="standard-basic" label="Password" variant="standard" color="loginButton" />
                 </div>
                 <CardActions sx={{ paddingTop: "2rem" }}>
-                    <Button variant="outlined" color="loginButton" sx={{ fontWeight: "bolder" }}>
+                    <Button variant="outlined" color="loginButton" sx={{ fontWeight: "bolder" }} onClick={() => getUserLogin(dispatch, userName, password)}>
                         Iniciar Sesión
                     </Button>
                 </CardActions>
@@ -32,4 +38,11 @@ const Login = () => {
 }
 
 export default Login
+
+
+const getUserLogin = (dispatch, userName, password) => {
+    window.location.href = "/home";
+    /* dispatch(getDataUserLogin("Monarca", "nogisaka")) */
+}
+
 

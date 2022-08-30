@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './Components/App';
-import App2 from './Components/App2';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
+import store from './Redux/store';
+import RotuerSwitch from './router/rotuerSwitch';
+
+import './index.css';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#004600',
+      main: '#1390CB',
     },
     secondary: {
       main: '#26A69A',
@@ -25,15 +28,13 @@ const theme = createTheme({
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ThemeProvider theme={theme}>
-    <App />
-  </ThemeProvider>
-
-);
-
-/* 
-<Provider store={store}>
+    <Provider store={store}>
       <BrowserRouter>
-      <App />
+
+        <RotuerSwitch />
+
       </BrowserRouter>
     </Provider>
-     */
+  </ThemeProvider>
+);
+
